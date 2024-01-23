@@ -3,12 +3,15 @@ const scroll = new LocomotiveScroll({
   smooth: true,
 });
 
+
 function page3Animation() {
   var elemC = document.querySelector("#elem-container");
   var fixed = document.querySelector("#fixed-image");
+
   elemC.addEventListener("mouseenter", function () {
     fixed.style.display = "block";
   });
+
   elemC.addEventListener("mouseleave", function () {
     fixed.style.display = "none";
   });
@@ -19,16 +22,31 @@ function page3Animation() {
       var image = e.getAttribute("data-image");
       fixed.style.backgroundImage = `url(${image})`;
     });
-  });
-  var elems1 = document.querySelectorAll(".elem1");
-  elems.forEach(function (e) {
-    e.addEventListener("mouseenter", function () {
-      var video = e.getAttribute("data-video");
-      fixed.style.video = `<video autoplay muted loop src="${video}"></video>`;
+
+    e.addEventListener("click", function () {
+      toggleImageDisplay();
     });
   });
+
+  var elems1 = document.querySelectorAll(".elem1");
+  elems1.forEach(function (e) {
+    e.addEventListener("mouseenter", function () {
+      var video = e.getAttribute("data-video");
+      fixed.innerHTML = `<video autoplay muted loop src="${video}"></video>`;
+    });
+
+    e.addEventListener("click", function () {
+      toggleImageDisplay();
+    });
+  });
+
+  function toggleImageDisplay() {
+    fixed.style.display = fixed.style.display === "none" ? "block" : "none";
+  }
 }
+
 page3Animation();
+
 function swiperAnimation() {
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
