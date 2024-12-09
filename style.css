@@ -50,6 +50,14 @@ nav {
   justify-content: space-between;
   position: relative;
   z-index: 100;
+  overflow: hidden;
+}
+nav img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 nav h3 {
   color: rgba(0, 0, 0, 0.795);
@@ -631,6 +639,13 @@ nav h3 {
   nav {
     padding: 8vw 5vw;
     background-color: #efeae3;
+  }
+  nav img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    /* object-position: center; */
+    border-radius: 50%;
   }
   nav h1 {
     height: 9vh;
